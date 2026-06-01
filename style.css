@@ -1,0 +1,737 @@
+/* ==========================================================================
+   "초원이의 달리기: 백만불짜리 다리" - Lovely Pastel Pink Theme (style.css)
+   ========================================================================== */
+
+/* 🎨 1. 디자인 토큰 및 변수 (Lovely Pastel Pink Palette) */
+:root {
+  --font-sans: 'Outfit', 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-hand: 'Gamja Flower', 'Nanum Pen Script', 'Malgun Gothic', cursive;
+  
+  /* 발랄한 핑크 & 파스텔 테마 */
+  --bg-dark: hsl(340, 80%, 95%);
+  --bg-panel: hsla(0, 0%, 100%, 0.85);
+  --border-light: hsla(340, 60%, 88%, 0.7);
+  
+  --diary-pink: hsl(340, 70%, 55%);
+  --diary-accent: hsl(340, 80%, 65%);
+  --diary-cream: hsl(345, 100%, 98%);
+  --diary-text: hsl(340, 40%, 25%);
+  
+  --paper-cream: hsl(350, 100%, 99%);
+  --paper-line: hsl(340, 50%, 92%);
+  
+  /* 러블리 스탯 컬러 */
+  --color-rapport: hsl(345, 90%, 68%);     /* 달콤한 딸기 핑크 */
+  --color-inclusion: hsl(195, 90%, 68%);   /* 시원한 소다 블루 */
+  --color-stability: hsl(125, 60%, 68%);   /* 상큼한 메론 그린 */
+  
+  /* 그림자 & 글래스모피즘 */
+  --shadow-premium: 0 15px 35px -10px hsla(340, 40%, 40%, 0.25);
+  --shadow-polaroid: 0 12px 25px -8px hsla(340, 30%, 30%, 0.15);
+  --glass-blur: blur(16px);
+}
+
+/* 🌀 2. 기본 초기화 및 하트 패턴 배경 세팅 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  
+  /* 💖 고품격 CSS 인라인 SVG 하트 패턴 배경 */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M20 28 C20 28, 14 22, 20 18 C26 22, 20 28, 20 28 Z" fill="%23ffc5d5" opacity="0.4"/><circle cx="5" cy="5" r="1" fill="%23ff9ebb" opacity="0.3"/><circle cx="35" cy="15" r="1.5" fill="%23ff9ebb" opacity="0.3"/></svg>');
+  
+  color: var(--diary-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 감성적인 하트 & 버블 파티클 플로팅 애니메이션 */
+.background-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* 둥실둥실 떠오르는 러블리 하트들 */
+.background-decorations::before,
+.background-decorations::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M30 42 C30 42, 21 33, 30 27 C39 33, 30 42, 30 42 Z" fill="%23ff8ea8" opacity="0.15"/></svg>');
+  animation: float-hearts 40s linear infinite;
+}
+
+.background-decorations::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M25 35 C25 35, 17 27, 25 22 C33 27, 25 35, 25 35 Z" fill="%23ffb3c5" opacity="0.25"/></svg>');
+  animation: float-hearts 25s linear infinite reverse;
+  margin-left: 25px;
+}
+
+@keyframes float-hearts {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.dust {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255, 180, 200, 0.4) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  filter: blur(4px);
+}
+
+.dust-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 5%;
+  animation: float-slow 20s infinite ease-in-out;
+}
+
+.dust-2 {
+  width: 300px;
+  height: 300px;
+  bottom: 5%;
+  right: 5%;
+  animation: float-slow 30s infinite ease-in-out reverse;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-30px) translateX(20px) scale(1.05); }
+}
+
+/* 📦 3. 메인 게임 컨테이너 레이아웃 (Grid) */
+.game-container {
+  position: relative;
+  z-index: 2;
+  width: 95vw;
+  max-width: 1200px;
+  height: 85vh;
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 24px;
+  margin: 20px auto;
+}
+
+/* 🎛️ 4. HUD 계기판 패널 (핑크 파스텔화) */
+.hud-panel {
+  background: var(--bg-panel);
+  border: 2px solid var(--border-light);
+  border-radius: 24px; /* 더 둥글둥글하고 아기자기하게 */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-premium);
+  transition: all 0.3s ease;
+}
+
+/* 교사 프로필 영역 */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed var(--border-light);
+}
+
+.avatar-holder {
+  background: linear-gradient(135deg, hsl(340, 80%, 70%), hsl(340, 80%, 60%));
+  color: white;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px hsla(340, 80%, 60%, 0.25);
+  border: 2px solid white;
+}
+
+.profile-info .role-badge {
+  font-family: var(--font-hand);
+  font-size: 0.9rem;
+  color: white;
+  background: var(--diary-pink);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.teacher-name {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 4px;
+  color: var(--diary-pink);
+}
+
+/* 스탯 그룹 스타일링 */
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 25px 0;
+  flex-grow: 1;
+}
+
+.stat-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--diary-text);
+}
+
+.stat-icon {
+  margin-right: 4px;
+  font-size: 1.1rem;
+}
+
+.stat-val {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  color: var(--diary-pink);
+}
+
+.progress-track {
+  background: hsla(340, 40%, 90%, 0.7);
+  height: 14px;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 7px;
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.4);
+}
+
+/* 스탯 속성별 큐티 컬러 및 맥박(pulse) 효과 */
+.fill-rapport {
+  background: linear-gradient(90deg, hsl(340, 80%, 75%), var(--color-rapport));
+}
+.fill-inclusion {
+  background: linear-gradient(90deg, hsl(190, 80%, 75%), var(--color-inclusion));
+}
+.fill-stability {
+  background: linear-gradient(90deg, hsl(120, 50%, 75%), var(--color-stability));
+}
+
+@keyframes stat-pulse {
+  0% { transform: scaleY(1); }
+  50% { transform: scaleY(1.3) scaleX(1.02); filter: brightness(1.15); }
+  100% { transform: scaleY(1); }
+}
+.pulse-active {
+  animation: stat-pulse 0.4s ease-in-out 2;
+}
+
+/* HUD 버튼 푸터 */
+.hud-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  border-top: 2px dashed var(--border-light);
+  padding-top: 20px;
+}
+
+.action-btn-sm {
+  background: hsl(340, 100%, 97%);
+  border: 2px solid var(--border-light);
+  color: var(--diary-pink);
+  padding: 8px 12px;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(255, 180, 200, 0.1);
+}
+
+.action-btn-sm:hover {
+  background: var(--diary-pink);
+  color: white;
+  border-color: var(--diary-pink);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 5px 12px hsla(340, 80%, 60%, 0.2);
+}
+
+/* 🖼️ 5. 중앙 스토리보드 패널 (부드러운 핑크 다이어리 느낌) */
+.story-board {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--diary-cream);
+  border: 2px solid var(--border-light);
+  border-radius: 24px;
+  box-shadow: var(--shadow-premium);
+  overflow: hidden;
+  backdrop-filter: var(--glass-blur);
+}
+
+/* 폴라로이드 사진 카드 영역 */
+.polaroid-frame {
+  margin: 30px auto 15px auto;
+  background: white;
+  padding: 16px 16px 24px 16px;
+  width: 90%;
+  max-width: 440px;
+  height: 380px;
+  box-shadow: var(--shadow-polaroid);
+  transform: rotate(-1.5deg);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 12px; /* 살짝 둥글게 */
+  border: 1px solid hsla(340, 50%, 90%, 0.5);
+}
+
+.polaroid-frame:hover {
+  transform: rotate(1deg) scale(1.03);
+  box-shadow: 0 20px 45px -10px hsla(340, 40%, 30%, 0.25);
+}
+
+.polaroid-photo-container {
+  background: hsl(340, 30%, 97%);
+  border: 1px solid hsl(340, 50%, 92%);
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.scene-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid-frame:hover .scene-image {
+  transform: scale(1.05);
+}
+
+/* 이미지가 없을 때를 대비한 SVG 감성 그래픽 스타일링 (러블리 테마 적용) */
+.svg-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, hsl(340, 100%, 97%), hsl(340, 100%, 99%));
+  color: var(--diary-pink);
+}
+
+.svg-fallback svg {
+  max-width: 130px;
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 4px 10px rgba(255, 100, 130, 0.15));
+}
+
+.polaroid-caption {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  color: var(--diary-pink);
+  text-align: center;
+  margin-top: 12px;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 📝 6. 스토리 설명 글상자 & 선택지 영역 */
+.story-content {
+  background: white;
+  border-top: 2px dashed var(--border-light);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 420px; /* 초과 팽창 방지 */
+  overflow-y: auto;  /* 콘텐츠가 많을 시 개별 스크롤 가능 */
+}
+
+/* 스토리 콘텐츠 스크롤바 디자인 */
+.story-content::-webkit-scrollbar {
+  width: 6px;
+}
+.story-content::-webkit-scrollbar-track {
+  background: rgba(255, 180, 200, 0.1);
+}
+.story-content::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 3px;
+}
+
+.story-text-wrapper {
+  background: hsl(340, 100%, 98%);
+  padding: 16px 20px;
+  border-radius: 16px;
+  border-left: 5px solid var(--diary-pink);
+  max-height: 180px;  /* 글상자의 최대 높이 고정 */
+  overflow-y: auto;   /* 텍스트가 길어지면 글상자 내부에서 스크롤바 생성 */
+  border: 1px solid var(--border-light);
+  border-left-width: 5px;
+}
+
+/* 글상자 내부 스크롤바 디자인 */
+.story-text-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+.story-text-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.story-text-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 2px;
+}
+
+.story-text {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--diary-text);
+  white-space: pre-line; /* 시나리오 줄바꿈 유지 */
+}
+
+/* 선택지 버튼 그리드 */
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-btn {
+  background: white;
+  border: 2px solid var(--border-light);
+  color: var(--diary-text);
+  padding: 14px 20px;
+  border-radius: 14px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  line-height: 1.4;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(255, 180, 200, 0.1);
+}
+
+/* 호버 시 발랄하고 통통 튀는 피드백 및 바운스 */
+.choice-btn:hover {
+  background: hsl(340, 100%, 98%);
+  border-color: var(--diary-pink);
+  color: var(--diary-pink);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 20px hsla(340, 80%, 60%, 0.15), 0 0 10px hsla(340, 80%, 60%, 0.1);
+}
+
+.choice-btn:active {
+  transform: translateY(1px);
+}
+
+/* 🏫 7. 특수교육 길라잡이 다이어리 메모 모달 */
+.overlay-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 230, 235, 0.85); /* 핑크빛 투명 오버레이 */
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  display: none; /* JS 제어 */
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.overlay-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-card {
+  border-radius: 28px;
+  width: 90%;
+  max-width: 650px;
+  box-shadow: 0 25px 50px -10px hsla(340, 40%, 30%, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: modal-enter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modal-enter {
+  0% { transform: translateY(60px) scale(0.9); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* 칠판에서 핑크 러블리 다이어리 판서 스타일로 리브랜딩 */
+.modal-card.blackboard {
+  background-color: var(--diary-cream);
+  border: 10px double var(--diary-pink);
+  padding: 30px;
+  color: var(--diary-text);
+  box-shadow: 0 15px 35px rgba(255, 100, 130, 0.15);
+}
+
+/* 테두리 다이어리 라인 데코레이션 */
+.chalk-border {
+  position: absolute;
+  top: 6px; left: 6px; right: 6px; bottom: 6px;
+  border: 2px dashed var(--border-light);
+  pointer-events: none;
+}
+
+.chalk-font {
+  font-family: var(--font-hand);
+  font-size: 2.3rem;
+  color: var(--diary-pink);
+  text-shadow: 0 2px 4px rgba(255, 100, 130, 0.1);
+  margin-bottom: 16px;
+  border-bottom: 2px dashed var(--border-light);
+  padding-bottom: 8px;
+}
+
+.chalk-writing {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--diary-text);
+  white-space: pre-line;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* 스크롤바 디자인 */
+.chalk-writing::-webkit-scrollbar {
+  width: 6px;
+}
+.chalk-writing::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chalk-writing::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 3px;
+}
+
+.chalk-btn {
+  background: var(--diary-pink);
+  border: 2px solid var(--diary-pink);
+  color: white;
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  padding: 8px 30px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+  display: inline-block;
+  box-shadow: 0 5px 15px hsla(340, 80%, 60%, 0.3);
+}
+
+.chalk-btn:hover {
+  background: white;
+  color: var(--diary-pink);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px hsla(340, 80%, 60%, 0.4);
+}
+
+/* 📔 8. 다이어리 스타일 모달 (도전과제 보드 - 더욱 아기자기하게) */
+.modal-card.diary-style {
+  background-color: var(--paper-cream);
+  color: var(--diary-text);
+  padding: 30px;
+  border: 4px solid var(--border-light);
+}
+
+.modal-card.diary-style h2 {
+  font-family: var(--font-hand);
+  font-size: 2.2rem;
+  color: var(--diary-pink);
+}
+
+.close-icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--border-light);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close-icon-btn:hover {
+  color: var(--diary-pink);
+  transform: rotate(90deg);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: hsl(340, 20%, 50%);
+  margin-top: -8px;
+  margin-bottom: 24px;
+}
+
+/* 업적 뱃지 그리드 */
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.badge-item {
+  background: white;
+  border: 2px dashed var(--border-light);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 12px rgba(255, 180, 200, 0.05);
+}
+
+.badge-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.badge-name {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--diary-pink);
+  margin-bottom: 6px;
+}
+
+.badge-desc {
+  font-size: 0.82rem;
+  color: hsl(340, 15%, 50%);
+  line-height: 1.4;
+}
+
+/* 업적 락 해제 상태 (스티커 붙인 듯 발랄하게) */
+.badge-item.unlocked {
+  border: 2px solid var(--diary-accent);
+  background: linear-gradient(135deg, white, hsl(345, 100%, 97%));
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 12px 25px hsla(340, 80%, 60%, 0.15);
+}
+
+.badge-item.unlocked .badge-icon {
+  transform: scale(1.15) rotate(8deg);
+}
+
+/* 업적 락 상태 (흐릿하게 필터) */
+.badge-item.locked {
+  filter: grayscale(1) opacity(0.4);
+  background: hsl(340, 10%, 95%);
+}
+
+/* 📱 9. 반응형 미디어 쿼리 (모바일 대응) */
+@media (max-width: 900px) {
+  .game-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    min-height: auto;
+    padding: 10px;
+    gap: 16px;
+  }
+
+  .hud-panel {
+    padding: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .profile-card {
+    border-bottom: none;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .stats-container {
+    margin: 10px 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .hud-footer {
+    width: 100%;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .polaroid-frame {
+    width: 80%;
+    height: 320px;
+    margin: 20px auto;
+  }
+
+  .badge-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .polaroid-frame {
+    width: 95%;
+    height: 280px;
+  }
+  
+  .choice-btn {
+    font-size: 0.85rem;
+    padding: 12px 16px;
+  }
+}

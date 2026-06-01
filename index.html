@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>초원이의 달리기: 백만불짜리 다리 | 특수교육 시뮬레이션</title>
+  <!-- Google Fonts: Inter & 나눔펜글씨 & 맑은 고딕 배색 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Inter:wght@300;400;600;700&family=Nanum+Pen+Script&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 배경 애니메이션용 별과 먼지 파티클 -->
+  <div class="background-decorations">
+    <div class="dust dust-1"></div>
+    <div class="dust dust-2"></div>
+  </div>
+
+  <div class="game-container">
+    
+    <!-- 좌측/상단: 특수교사 라이선스 및 실시간 상태 HUD -->
+    <header class="hud-panel">
+      <div class="profile-card">
+        <div class="avatar-holder">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="profile-info">
+          <span class="role-badge">초임 특수교사</span>
+          <h1 class="teacher-name">선생님</h1>
+        </div>
+      </div>
+
+      <!-- 실시간 스탯 바들 -->
+      <div class="stats-container">
+        <!-- 1. 신뢰도 (Rapport) -->
+        <div class="stat-bar-group" id="stat-rapport-group" title="초원이와 선생님 사이의 정서적 교감도">
+          <div class="stat-label">
+            <span class="stat-icon">❤️</span>
+            <span class="stat-text">초원이와의 신뢰도</span>
+            <span class="stat-val" id="val-rapport">10%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill fill-rapport" style="width: 10%;"></div>
+          </div>
+        </div>
+
+        <!-- 2. 포용도 (Inclusion) -->
+        <div class="stat-bar-group" id="stat-inclusion-group" title="학급 비장애 친구들이 초원이를 포용하는 통합도">
+          <div class="stat-label">
+            <span class="stat-icon">🤝</span>
+            <span class="stat-text">학급의 포용도</span>
+            <span class="stat-val" id="val-inclusion">20%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill fill-inclusion" style="width: 20%;"></div>
+          </div>
+        </div>
+
+        <!-- 3. 안정도 (Stability) -->
+        <div class="stat-bar-group" id="stat-stability-group" title="초원이가 느끼는 정서적/감각적 안정감">
+          <div class="stat-label">
+            <span class="stat-icon">🍀</span>
+            <span class="stat-text">초원이의 안정도</span>
+            <span class="stat-val" id="val-stability">80%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill fill-stability" style="width: 80%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 게임 메뉴 및 조작법 -->
+      <div class="hud-footer">
+        <button id="btn-restart" class="action-btn-sm" title="처음부터 다시 플레이">처음부터</button>
+        <button id="btn-achievements-toggle" class="action-btn-sm" title="도전 과제 확인">도전 과제</button>
+      </div>
+    </header>
+
+    <!-- 중앙: 스토리 진행 보드 (메인 화면) -->
+    <main class="story-board">
+      
+      <!-- 폴라로이드 사진 액자 (사용자 커스텀 이미지 장착 지점) -->
+      <div class="polaroid-frame" id="polaroid-card">
+        <div class="polaroid-photo-container">
+          <!-- 실제 이미지 태그 (사용자가 교체 시 로드됨) -->
+          <img id="scene-image" src="" alt="시나리오 이미지" class="scene-image" onerror="this.style.display='none'; document.getElementById('svg-fallback-container').style.display='flex';">
+          
+          <!-- 이미지 로드 실패 혹은 없을 경우를 위한 감성 SVG 그래픽 홀더 -->
+          <div id="svg-fallback-container" class="svg-fallback">
+            <!-- JS가 여기에 테마별 SVG를 주입합니다 -->
+          </div>
+        </div>
+        <div class="polaroid-caption" id="scene-title">
+          [Episode 1] 첫 만남
+        </div>
+      </div>
+
+      <!-- 시나리오 텍스트 및 선택지 컴포넌트 -->
+      <section class="story-content">
+        <div class="story-text-wrapper">
+          <p id="story-text" class="story-text">
+            로딩 중...
+          </p>
+        </div>
+
+        <!-- 선택지 목록 버블 -->
+        <div id="choices-container" class="choices-container">
+          <!-- JS를 통해 버튼들이 동적으로 주입됩니다 -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- 오버레이 1: 특수교육 길라잡이 해설 모달 (핑크 다이어리 디자인) -->
+  <div id="modal-explanation" class="overlay-modal">
+    <div class="modal-card blackboard">
+      <div class="chalk-border"></div>
+      <div class="modal-header">
+        <h2 id="explanation-title" class="chalk-font">💌 선생님의 사랑가득 교육일기</h2>
+      </div>
+      <div class="modal-body chalk-writing">
+        <p id="explanation-content">
+          해설 내용이 여기에 들어갑니다.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-close-explanation" class="chalk-btn">초원이와 한 걸음 더 ➜</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 오버레이 2: 도전 과제 / 뱃지 도감 보드 -->
+  <div id="modal-achievements" class="overlay-modal">
+    <div class="modal-card diary-style">
+      <div class="modal-header">
+        <h2>🏆 특수교사 전문성 업적 보드</h2>
+        <button id="btn-close-achievements" class="close-icon-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="subtitle">초원이와 함께 교감하며 획득한 영광스러운 기록들입니다.</p>
+        <div class="badge-grid">
+          <!-- 뱃지 1 -->
+          <div class="badge-item locked" id="badge-first-step">
+            <div class="badge-icon">👣</div>
+            <div class="badge-name">첫 걸음마</div>
+            <div class="badge-desc">초원이와 첫 교감에 성공하기</div>
+          </div>
+          <!-- 뱃지 2 -->
+          <div class="badge-item locked" id="badge-inclusion">
+            <div class="badge-icon">🤝</div>
+            <div class="badge-name">더불어 사는 교실</div>
+            <div class="badge-desc">반 아이들에게 장애 특성 이해시키기</div>
+          </div>
+          <!-- 뱃지 3 -->
+          <div class="badge-item locked" id="badge-shield">
+            <div class="badge-icon">🎧</div>
+            <div class="badge-name">감각의 페이스메이커</div>
+            <div class="badge-desc">갑작스러운 감각 멜트다운 현명하게 조절하기</div>
+          </div>
+          <!-- 뱃지 4 -->
+          <div class="badge-item locked" id="badge-marathoner">
+            <div class="badge-icon">🏅</div>
+            <div class="badge-name">백만불짜리 완주</div>
+            <div class="badge-desc">초원이와 함께 마라톤 완주 엔딩 보기</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 오디오 피드백을 위한 소형 내장 효과음 믹서 (Web Audio API 활용, 별도 외부 파일 불필요) -->
+
+  <!-- 스크립트 순서 보장 -->
+  <script src="storyData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
