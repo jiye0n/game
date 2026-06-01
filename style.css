@@ -675,63 +675,177 @@ body {
   background: hsl(340, 10%, 95%);
 }
 
-/* 📱 9. 반응형 미디어 쿼리 (모바일 대응) */
+/* 📱 9. 반응형 미디어 쿼리 (모바일/태블릿 완벽 대응) */
 @media (max-width: 900px) {
+  body {
+    background-size: 30px 30px; /* 배경 하트 축소 */
+    padding: 10px 0;
+  }
+
   .game-container {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     height: auto;
     min-height: auto;
-    padding: 10px;
-    gap: 16px;
+    width: 96vw;
+    margin: 10px auto;
+    gap: 14px;
   }
 
+  /* HUD 패널 콤팩트화 */
   .hud-panel {
-    padding: 16px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
+    padding: 14px;
+    border-radius: 18px;
+    gap: 10px;
   }
 
   .profile-card {
     border-bottom: none;
     padding-bottom: 0;
     width: 100%;
+    justify-content: center;
+    gap: 10px;
   }
 
+  .avatar-holder {
+    width: 44px;
+    height: 44px;
+  }
+
+  .teacher-name {
+    font-size: 1.15rem;
+  }
+
+  /* 스탯바들을 한 줄에 3개 나란히 압축 배치 */
   .stats-container {
-    margin: 10px 0;
+    margin: 6px 0;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .stat-bar-group {
+    gap: 4px;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
+  }
+
+  .stat-text {
+    display: none; /* 모바일에서 텍스트 감추고 아이콘과 수치만 표시 */
+  }
+
+  .stat-val {
+    font-size: 0.75rem;
+  }
+
+  .progress-track {
+    height: 8px; /* 바 두께를 얇게 줄여 화면 낭비 방지 */
   }
 
   .hud-footer {
-    width: 100%;
-    border-top: none;
-    padding-top: 0;
+    display: none; /* 모바일 HUD에서는 하단 불필요 버튼 숨김 */
   }
 
+  /* 메인 스토리보드 콤팩트 레이아웃 */
+  .story-board {
+    border-radius: 18px;
+  }
+
+  /* 폴라로이드 이미지 모바일 최적화 (컴팩트 스케일) */
   .polaroid-frame {
-    width: 80%;
-    height: 320px;
-    margin: 20px auto;
+    width: 85%;
+    max-width: 290px;
+    height: 240px; /* 세로 높이를 확 줄여 한눈에 들어오게 */
+    margin: 16px auto 10px auto;
+    padding: 10px 10px 16px 10px;
+  }
+
+  .polaroid-photo-container {
+    height: 78%;
+  }
+
+  .polaroid-caption {
+    font-size: 1.15rem;
+    margin-top: 6px;
+  }
+
+  .svg-fallback svg {
+    max-width: 80px;
+  }
+
+  /* 스토리 본문 및 선택지 콤팩트 패딩 */
+  .story-content {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .story-text-wrapper {
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-height: 140px; /* 모바일 본문 스크롤 임계치 단축 */
+  }
+
+  .story-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .choice-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+  
+  /* 모달 팝업 모바일 스케일 조정 */
+  .modal-card {
+    width: 92%;
+    border-radius: 20px;
+  }
+
+  .modal-card.blackboard {
+    border-width: 6px;
+    padding: 16px;
+  }
+
+  .chalk-font {
+    font-size: 1.7rem;
+  }
+
+  .chalk-writing {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .chalk-btn {
+    font-size: 1.2rem;
+    padding: 6px 20px;
+    border-radius: 12px;
   }
 
   .badge-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
-@media (max-width: 500px) {
-  .polaroid-frame {
-    width: 95%;
-    height: 280px;
+@media (max-width: 400px) {
+  .stats-container {
+    gap: 6px;
   }
   
-  .choice-btn {
-    font-size: 0.85rem;
-    padding: 12px 16px;
+  .stat-label {
+    font-size: 0.65rem;
+  }
+  
+  .polaroid-frame {
+    max-width: 250px;
+    height: 210px;
   }
 }
