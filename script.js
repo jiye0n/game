@@ -756,6 +756,14 @@ function startGame() {
         renderScene();
     }
 }
+
+function changeGameBackground(bgNumber) {
+  // 1. 기존에 active 상태였던 배경 레이어를 찾아서 클래스 제거
+  document.querySelector('.bg-layer.active')?.classList.remove('active');
+
+  // 2. 새로운 번호(예: bg-3)의 레이어를 찾아서 active 클래스 추가
+  document.querySelector(`.bg-${bgNumber}`)?.classList.add('active');
+}
 function renderScene() {
     const screen = document.getElementById('screen');
     const backBtn = document.getElementById('back-btn-area');
