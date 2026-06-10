@@ -8,7 +8,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '나',
-        bgImage: 'images/bg1.png',
+        bgImage: 'images/bg1.webp',
         text: '꿈에 그리던 첫 발령이다 ..!\n과연 어떤 학생들이 나를 기다리고 있을까 ..? (두근두근)',
         bg: '#ffe4e1'
     },
@@ -20,7 +20,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '선배 교사',
-        bgImage: 'images/bg2.png',
+        bgImage: 'images/bg2.webp',
         text: '아~ 오늘 첫 발령받은 선생님이시군요~?!',
         bg: '#ffc0cb'
     },
