@@ -1,5 +1,5 @@
 const scenes = [
-    { type: 'title', bgImage: 'images/title_bg.png' },
+    { type: 'title', bgImage: 'images/title_bg.webp' },
     { 
         type: 'interstitial', 
         bg: '#fff0f5', 
@@ -68,7 +68,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '교감선생님',
-        bgImage: 'images/bg3.png',
+        bgImage: 'images/bg3.webp',
         text: '환영해요~ (큼큼..)',
         bg: '#ffdae9'
     },
@@ -135,7 +135,7 @@ const scenes = [
     { 
         type: 'interstitial', 
         bg: '#ffc0cb', 
-	bgImage: 'images/bg4.png',
+	bgImage: 'images/bg4.webp',
         text: '선배 교사와 교감선생님의 이야기를 들은 후\n교실로 가는 길에 초원이를 만나게 된다.' 
     },
     {
@@ -203,7 +203,7 @@ const scenes = [
         speaker: '나',
         text: '자 이거는 선생님이\n초원이가 달리기를 너무 잘해서 주는 선물이야!',
         bg: '#ffb6c1',
-        items: ['zebra.png', 'chocopie.png']
+        items: ['zebra.webp', 'chocopie.webp']
     },
     { 
         type: 'interstitial', 
@@ -213,7 +213,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '반 학생들',
-        bgImage: 'images/bg5.png',
+        bgImage: 'images/bg5.webp',
         text: '야 상혁아 너 게임 랭크 올렸다며 대단하다~',
         bg: '#ffb6c1'
     },
@@ -226,16 +226,16 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon2.png', 
+        characterImage: 'chowon2.webp', 
         text: '..... (초원이는 친구들을 빤히 쳐다본다.)',
         bg: '#ffb6c1'
     },
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon2.png', 
+        characterImage: 'chowon2.webp', 
         text: '(얼룩말 인형을 친구들 사이로 툭 올려놓는다.)',
-        items: ['zebra.png'],
+        items: ['zebra.webp'],
         bg: '#ffb6c1'
     },
     {
@@ -284,7 +284,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '나',
-        bgImage: 'images/bg9.png',
+        bgImage: 'images/bg9.webp',
         text: '우리 1반 친구들 모두 의자에 앉아볼까?!',
         hideCharacter: true,
         bg: '#ffb6c1'
@@ -332,7 +332,7 @@ const scenes = [
     { 
         type: 'interstitial', 
         bg: '#ffc0cb', 
-        bgImage: 'images/bg6.png',
+        bgImage: 'images/bg6.webp',
         text: '드디어 오늘은 \n 학교 미니 마라톤 대회날.. \n 초원이가 평상시 처럼 뛰어준다면\n 1등은 우리 초원이 것이다!' 
     },
     { 
@@ -343,7 +343,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon3.png', 
+        characterImage: 'chowon3.webp', 
         text: '(불안해 하며) 엄마..엄마...!',
         bg: '#ffb6c1'
     },
@@ -398,22 +398,22 @@ const scenes = [
         speaker: '나',
         text: '초원아! 괜찮아? \n(초원이에게 헤드셋을 씌워준다.)',
         bg: '#ffb6c1',
-        items: ['headphone.png']
+        items: ['headphone.webp']
     },
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon4.png', 
+        characterImage: 'chowon4.webp', 
         text: '.......',
         bg: '#ffb6c1',
-        items: ['headphone.png']
+        items: ['headphone.webp']
     },
     {
         type: 'dialogue',
         speaker: '나',
         text: '사람들이 많아서 놀랬지? \n우리 저기 벤치에 앉아서 조금만 쉬자',
         bg: '#ffb6c1',
-        items: ['headphone.png']
+        items: ['headphone.webp']
     },
     { 
         type: 'interstitial', 
@@ -423,15 +423,15 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '나',
-        bgImage: 'images/bg7.png',
+        bgImage: 'images/bg7.webp',
         text: '초원아 지금은 조금 괜찮아졌어? \n사람이 많아져서 놀랬지 대회 날이라 그런가 보다',
         bg: '#ffb6c1',
-        items: ['headphone.png']
+        items: ['headphone.webp']
     },
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon4.png', 
+        characterImage: 'chowon4.webp', 
         text: '.......',
         bg: '#ffb6c1'
     },
@@ -440,7 +440,7 @@ const scenes = [
         speaker: '나',
         text: '초원이가 괜찮아질 때까지 선생님과 학교 친구들은 \n초원이를 기다려줄 거야 괜찮아지면 선생님한테 꼭 알려줘~',
         bg: '#ffb6c1',
-        items: ['headphone.png']
+        items: ['headphone.webp']
     },
     { 
         type: 'interstitial', 
@@ -450,7 +450,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon2.png', 
+        characterImage: 'chowon2.webp', 
         text: '....초원이 다리는 백만 불짜리 다리....',
         bg: '#ffb6c1'
     },
@@ -463,7 +463,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon5.png', 
+        characterImage: 'chowon5.webp', 
         text: '(급하게 운동장으로 뛰어간다.)',
         bg: '#ffb6c1'
     },
@@ -476,7 +476,7 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '체육교사',
-        bgImage: 'images/bg6.png',
+        bgImage: 'images/bg6.webp',
         text: '자 모두 출반선에 서요~\n소리가 나면 바로 뛰는 거에요!',
         bg: '#ffb6c1'
     },
@@ -485,7 +485,7 @@ const scenes = [
         speaker: '체육교사',
         text: '자 준비~(땅!)',
         bg: '#ffb6c1',
-        items: ['gun.png']
+        items: ['gun.webp']
     },
     {
         type: 'dialogue',
@@ -496,38 +496,38 @@ const scenes = [
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon6.png',
-        bgImage: 'images/bg8.png',
+        characterImage: 'chowon6.webp',
+        bgImage: 'images/bg8.webp',
         text: '(열심히 달린다)',
         bg: '#ffb6c1'
     },
     {
         type: 'dialogue',
         speaker: '사람들',
-        characterImage: 'people2.png',
-        bgImage: 'images/bg6.png',
+        characterImage: 'people2.webp',
+        bgImage: 'images/bg6.webp',
         text: '저 학생 엄청 잘 달린다..',
         bg: '#ffb6c1'
     },
     {
         type: 'dialogue',
         speaker: '사람들',
-        characterImage: 'people0.png',
+        characterImage: 'people0.webp',
         text: '초원아 파이팅!!!',
         bg: '#ffb6c1'
     },
     {
         type: 'dialogue',
         speaker: '사람들',
-        characterImage: 'people2.png',
+        characterImage: 'people2.webp',
         text: '엄청 잘 달리는 학생 이름이 초원이 인가봐..!\n 초원아 파이팅!!',
         bg: '#ffb6c1'
     },
     {
         type: 'dialogue',
         speaker: '초원이',
-        characterImage: 'chowon7.png',
-        bgImage: 'images/bg10.png',
+        characterImage: 'chowon7.webp',
+        bgImage: 'images/bg10.webp',
         text: '(활짝 웃는다)',
         hideCharacter: true,
         bg: '#ffb6c1'
@@ -535,30 +535,30 @@ const scenes = [
     { 
         type: 'interstitial', 
         bg: '#ffc0cb', 
-        bgImage: 'images/bg10.png',
+        bgImage: 'images/bg10.webp',
         text: '나는 그날 초원이의 미소를 잊지 못한다.\n초원이는 얼굴 가득 세상에서 가장 순수하고\n 진심 어린 미소를 보여주었기 때문이다.' 
     },
     { 
         type: 'interstitial', 
-        bgImage: 'images/bg10.png',
+        bgImage: 'images/bg10.webp',
         bg: '#ffc0cb',
        text: '이 세상 누구보다 행복한 미소를 짓고 마라톤을 완주한 초원이는..' 
     },
     { 
         type: 'interstitial', 
-        bgImage: 'images/bg12.png',
+        bgImage: 'images/bg12.webp',
         bg: '#ffc0cb', 
         text: '교내 미니 마라톤 대회에서 당당하게 1등을 차지했다!!' 
     },
     { 
         type: 'interstitial', 
-        bgImage: 'images/bg12.png',
+        bgImage: 'images/bg12.webp',
         bg: '#ffc0cb', 
         text: '모든 특수교육 대상자는\n 장애유형, 장애 정도에 따라 차별받지 아니하고 또래와 함께 교육받을 권리가 있다.' 
     },
     { 
         type: 'interstitial', 
-        bgImage: 'images/bg12.png',
+        bgImage: 'images/bg12.webp',
         bg: '#ffc0cb', 
         text: '이처럼 초원이에게 필요한 것은\n 특별한 대우가 아니라 함께할 수 있는 기회였다.\n 앞으로의 교실에서도 "어떻게 가르칠까?"를 넘어\n"어떻게 함께 살아갈까?"를 고민하는 교사가 되어야겠다!' 
     },
@@ -572,7 +572,7 @@ let currentSceneIndex = 0;
 let intimacyLevel = 0;      // 초원이 신뢰도 (❤️)
 let inclusionLevel = 0;     // 학급 포용도 (🤝)
 let stabilityLevel = 0;    // 초원이 안정도 (🍀) - 기본 50% 시작
-let currentBgImage = 'images/title_bg.png';
+let currentBgImage = 'images/title_bg.webp';
 let isTransitioning = false;
 let playerName = '나';
 let unlockedAchievements = []; // 획득한 업적 보관용 배열
@@ -707,7 +707,7 @@ function startGame() {
                     screen.innerHTML = `
                         <div class="loading-screen screen">
                             <div class="pixel-loading-container">
-                                <img src="images/loading_bar.png" alt="Loading" class="loading-fill-img" id="loading-bar" />
+                                <img src="images/loading_bar.webp" alt="Loading" class="loading-fill-img" id="loading-bar" />
                             </div>
                         </div>
                     `;
@@ -808,9 +808,9 @@ function renderScene() {
         const titleDiv = document.createElement('div');
         titleDiv.className = 'title-screen screen'; // screen 클래스 필수 바인딩
         titleDiv.innerHTML = `
-            <img src="images/title_main.png" alt="초원이와 친해지기 프로젝트" class="title-main-img" />
+            <img src="images/title_main.webp" alt="초원이와 친해지기 프로젝트" class="title-main-img" />
             <button class="title-start-btn" onclick="startGame()">
-                <img src="images/start_btn.png" alt="START" />
+                <img src="images/start_btn.webp" alt="START" />
             </button>
         `;
         screen.appendChild(titleDiv);
@@ -821,7 +821,7 @@ function renderScene() {
         loadingDiv.className = 'loading-screen screen'; 
         loadingDiv.innerHTML = `
             <div class="pixel-loading-container">
-                <img src="images/loading_bar.png" alt="Loading" class="loading-fill-img" id="loading-bar" />
+                <img src="images/loading_bar.webp" alt="Loading" class="loading-fill-img" id="loading-bar" />
             </div>
         `;
         screen.appendChild(loadingDiv);
@@ -852,13 +852,13 @@ function renderScene() {
         dialogDiv.setAttribute('data-scene-type', 'dialogue'); 
         
         const baseCharacterImages = {
-            '나': 'images/me.png',
-            '선배 교사': 'images/senior.png',
-            '교감선생님': 'images/vp.png',
-            '초원이': 'images/chowon.png',
-            '반 학생들': 'images/friend.png',
-            '사람들':'images/people.png',
-            '체육교사':'images/pe.png'
+            '나': 'images/me.webp',
+            '선배 교사': 'images/senior.webp',
+            '교감선생님': 'images/vp.webp',
+            '초원이': 'images/chowon.webp',
+            '반 학생들': 'images/friend.webp',
+            '사람들':'images/people.webp',
+            '체육교사':'images/pe.webp'
         };
         
         let imgSrc = scene.characterImage ? 'images/' + scene.characterImage : (baseCharacterImages[scene.speaker] || '');
