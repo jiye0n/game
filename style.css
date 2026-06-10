@@ -26,10 +26,13 @@ body {
     padding: 20px;
     box-sizing: border-box;
     
-    /* 노트북 가로/세로 화면 크기를 넘지 않도록 상한선 설정 */
     max-width: 100vw;
     max-height: 100vh;
-    transform: scale(0.95); /* 화면 가장자리에 너무 붙지 않게 살짝 여백 주기 */
+    transform: scale(0.95); 
+
+    /* ======= [★ 렉 방지 치트키 추가] ======= */
+    will-change: transform; 
+    backface-visibility: hidden;
 }
 
 /* 화면 높이가 낮은 노트북 해상도를 위한 자동 비율 축소 시스템 */
