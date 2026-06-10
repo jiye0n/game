@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -88,4 +89,96 @@
 </div>
     <script src="script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초원이와 친해지기 프로젝트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="wrapper-container">
+        
+        <div id="sidebar">
+            <div class="profile-section">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-info">
+                    <span class="profile-badge">초임 교사</span>
+                    <h3 class="profile-name" id="profile-player-name">선생님</h3>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="status-container">
+                <div class="status-group">
+                    <div class="status-label-row">
+                        <span class="status-icon">❤️</span>
+                        <span class="status-name">초원이와의 신뢰도</span>
+                        <span class="status-value" id="val-trust">0%</span>
+                    </div>
+                    <div class="status-bar-bg"><div id="bar-trust" class="status-bar" style="width: 0%;"></div></div>
+                </div>
+                
+                <div class="status-group">
+                    <div class="status-label-row">
+                        <span class="status-icon">🤝</span>
+                        <span class="status-name">학급의 포용도</span>
+                        <span class="status-value" id="val-inclusion">0%</span>
+                    </div>
+                    <div class="status-bar-bg"><div id="bar-inclusion" class="status-bar" style="width: 0%;"></div></div>
+                </div>
+                
+                <div class="status-group">
+                    <div class="status-label-row">
+                        <span class="status-icon">🍀</span>
+                        <span class="status-name">초원이의 안정도</span>
+                        <span class="status-value" id="val-stability">50%</span>
+                    </div>
+                    <div class="status-bar-bg"><div id="bar-stability" class="status-bar" style="width: 50%;"></div></div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <button class="footer-btn" onclick="location.reload()">처음부터</button>
+                <button class="footer-btn" onclick="openAchievementModal()">도전 과제</button>
+            </div>
+        </div>
+
+        <div id="game-container">
+            <div id="back-btn-area" onclick="goBack(event)">
+		<div id="fade-overlay"></div>
+                <span class="back-icon">◀</span>
+            </div>
+            
+            <div id="screen"></div>
+        </div>
+
+    </div>
+
+    <div id="achievement-modal" class="modal" onclick="closeAchievementModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeAchievementModal()">&times;</span>
+            <h2>🏆 획득한 업적 도감</h2>
+            <div id="achievement-list-container"></div>
+        </div>
+    </div>
+<!-- [추가] 이름 입력 커스텀 모달창 -->
+<div id="name-input-modal" class="modal" style="display: none;">
+    <div class="modal-content" style="text-align: center; width: 450px; padding: 40px 30px;">
+        <h2 style="color: #ff1493; margin-bottom: 25px; font-size: 28px;">교사 등록</h2>
+        
+        <!-- placeholder를 넣어 연하게 안내 문구가 뜨도록 설정 -->
+        <input type="text" id="player-name-field" placeholder="이름을 입력해주세요" 
+               style="width: 100%; padding: 15px; font-size: 22px; border: 3px solid #ffb6c1; border-radius: 15px; text-align: center; font-family: 'Jua', sans-serif; outline: none; margin-bottom: 25px;">
+        
+        <button id="name-submit-btn" class="footer-btn" style="width: 100%; padding: 12px 0; font-size: 20px;">게임 시작하기</button>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+>>>>>>> 34ef5e2422e2f5be14fdeb4d9b723a2e4eefdb00
 </html>
