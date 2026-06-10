@@ -14,7 +14,8 @@ const scenes = [
     },
     { 
         type: 'interstitial', 
-        bg: '#ffb6c1', 
+        bg: '#ffb6c1',
+        bgImage: 'images/bg1.webp',
         text: '설레는 마음으로 선배 교사를 찾아간다.' 
     },
     {
@@ -62,7 +63,8 @@ const scenes = [
     },
     { 
         type: 'interstitial', 
-        bg: '#ffe4e1', 
+        bg: '#ffe4e1',
+        bgImage: 'images/bg2.webp',
         text: '선배 교사의 말씀을 듣고\n궁금증이 생겼지만\n일단 교무실로 가자..!' 
     },
     {
