@@ -186,19 +186,14 @@ body {
 }
 
 #screen {
-    position: relative; /* 필수 */
+    position: relative;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-size: cover !important;       
-    background-position: center !important;  
-    background-repeat: no-repeat !important;
-    z-index: 1;
-
-    /* ======= [렉 방지 코드 추가] ======= */
-    transform: translateZ(0); 
-    will-change: background-image;
+    /* ======= [이미지 크기 폭주 방지] ======= */
+    max-width: 1920px;          /* 최대 너비 제한 */
+    aspect-ratio: 16 / 9;       /* 16:9 황금 비율 고정 */
+    margin: 0 auto;             /* 화면 중앙 정렬 */
+    overflow: hidden;
+    background-color: #000;     /* 여백이 생길 경우 검은색으로 처리 (시네마틱 뷰) */
 }
 
 
