@@ -216,7 +216,22 @@ body {
     height: 100%;
     display: block !important; 
 }
-
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* cover 대신 contain으로 변경 */
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    will-change: opacity;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 1;
+}
 /* ==========================================================================
    [★최종 레이어 통합 구역] 캐릭터 레이어 분리 및 대화창 최상위 전면 배치
    ========================================================================== */
