@@ -186,36 +186,12 @@ body {
 }
 
 #screen {
-    position: relative;
-    width: 100%;
-    /* ======= [이미지 크기 폭주 방지] ======= */
-    max-width: 1920px;          /* 최대 너비 제한 */
-    aspect-ratio: 16 / 9;       /* 16:9 황금 비율 고정 */
-    margin: 0 auto;             /* 화면 중앙 정렬 */
-    overflow: hidden;
-    background-color: #000;     /* 여백이 생길 경우 검은색으로 처리 (시네마틱 뷰) */
-}
-
-
-
-.screen {
+    position: relative; /* 필수: 자식 레이어들의 기준점 */
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    overflow: hidden;   /* 혹시 모를 이미지 삐져나옴 방지 */
 }
 
-/* Dialogue Screen 입체 구조 유지 */
-.screen[data-scene-type="dialogue"] {
-    position: relative; 
-    width: 100%;
-    height: 100%;
-    display: block !important; 
-}
 .bg-layer {
     position: absolute;
     top: 0;
@@ -231,6 +207,36 @@ body {
     will-change: opacity;
     transition: opacity 0.2s ease-in-out;
     z-index: 1;
+}
+/* 활성화된 배경 레이어만 화면에 노출 */
+.bg-layer.active {
+    opacity: 1; 
+}
+
+/* UI, 캐릭터 등을 담는 상위 스크린 컨테이너 */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    /* [중요] 배경 레이어(z-index: 1)보다 확실하게 위로 올림 */
+    z-index: 2; 
+}
+
+/* Dialogue Screen 입체 구조 유지 */
+.screen[data-scene-type="dialogue"] {
+    position: relative; 
+    width: 100%;
+    height: 100%;
+    display: block !important; 
+    
+    /* 대사창 스크린도 배경보다 위에 떠야 하므로 명시적 지정 */
+    z-index: 2; 
 }
 /* ==========================================================================
    [★최종 레이어 통합 구역] 캐릭터 레이어 분리 및 대화창 최상위 전면 배치
