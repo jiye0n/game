@@ -64,11 +64,25 @@
 
         <div id="game-container">
             <div id="back-btn-area" onclick="goBack(event)">
-		<div id="fade-overlay"></div>
+                <div id="fade-overlay"></div>
                 <span class="back-icon">◀</span>
             </div>
             
-            <div id="screen"></div>
+            <div id="screen">
+                <div class="bg-layer bg-1 active" style="background-image: url('images/bg1.webp');"></div>
+                <div class="bg-layer bg-2" style="background-image: url('images/bg2.webp');"></div>
+                <div class="bg-layer bg-3" style="background-image: url('images/bg3.webp');"></div>
+                <div class="bg-layer bg-4" style="background-image: url('images/bg4.webp');"></div>
+                <div class="bg-layer bg-5" style="background-image: url('images/bg5.webp');"></div>
+                <div class="bg-layer bg-6" style="background-image: url('images/bg6.webp');"></div>
+                <div class="bg-layer bg-7" style="background-image: url('images/bg7.webp');"></div>
+                <div class="bg-layer bg-8" style="background-image: url('images/bg8.webp');"></div>
+                <div class="bg-layer bg-9" style="background-image: url('images/bg9.webp');"></div>
+                <div class="bg-layer bg-10" style="background-image: url('images/bg10.webp');"></div>
+                <div class="bg-layer bg-11" style="background-image: url('images/bg11.webp');"></div>
+                <div class="bg-layer bg-12" style="background-image: url('images/bg12.webp');"></div>
+                
+                </div>
         </div>
 
     </div>
@@ -80,18 +94,18 @@
             <div id="achievement-list-container"></div>
         </div>
     </div>
-<!-- [추가] 이름 입력 커스텀 모달창 -->
-<div id="name-input-modal" class="modal" style="display: none;">
-    <div class="modal-content" style="text-align: center; width: 450px; padding: 40px 30px;">
-        <h2 style="color: #ff1493; margin-bottom: 25px; font-size: 28px;">교사 등록</h2>
-        
-        <!-- placeholder를 넣어 연하게 안내 문구가 뜨도록 설정 -->
-        <input type="text" id="player-name-field" placeholder="이름을 입력해주세요" 
-               style="width: 100%; padding: 15px; font-size: 22px; border: 3px solid #ffb6c1; border-radius: 15px; text-align: center; font-family: 'Jua', sans-serif; outline: none; margin-bottom: 25px;">
-        
-        <button id="name-submit-btn" class="footer-btn" style="width: 100%; padding: 12px 0; font-size: 20px;">게임 시작하기</button>
+
+    <div id="name-input-modal" class="modal" style="display: none;">
+        <div class="modal-content" style="text-align: center; width: 450px; padding: 40px 30px;">
+            <h2 style="color: #ff1493; margin-bottom: 25px; font-size: 28px;">교사 등록</h2>
+            
+            <input type="text" id="player-name-field" placeholder="이름을 입력해주세요" 
+                   style="width: 100%; padding: 15px; font-size: 22px; border: 3px solid #ffb6c1; border-radius: 15px; text-align: center; font-family: 'Jua', sans-serif; outline: none; margin-bottom: 25px;">
+            
+            <button id="name-submit-btn" class="footer-btn" style="width: 100%; padding: 12px 0; font-size: 20px;">게임 시작하기</button>
+        </div>
     </div>
-</div>
+
     <script src="script.js"></script>
 </body>
 </html>
