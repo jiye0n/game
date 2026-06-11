@@ -186,55 +186,32 @@ body {
 }
 
 #screen {
-    position: relative; /* 필수: 자식 레이어들의 기준점 */
+    position: relative; /* 필수 */
     width: 100%;
     height: 100%;
-    overflow: hidden;   /* 혹시 모를 이미지 삐져나옴 방지 */
-}
-
-/* 모든 배경 레이어의 기본 스타일 (GPU 가속 포함) */
-.bg-layer {
-    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    /* [기본 상태] 완전히 투명하게 숨김 */
-    opacity: 0; 
-    
-    /* ======= [렉 방지 핵심: GPU 하드웨어 가속] ======= */
-    transform: translate3d(0, 0, 0); 
-    will-change: opacity; 
-    
-    /* 배경이 부드럽게 스르륵 바뀌는 효과 (원치 않으시면 제거 가능) */
-    transition: opacity 0.2s ease-in-out; 
-    
-    /* 가장 바닥에 깔리도록 설정 */
-    z-index: 1; 
+    background-size: cover !important;       
+    background-position: center !important;  
+    background-repeat: no-repeat !important;
+    z-index: 1;
+
+    /* ======= [렉 방지 코드 추가] ======= */
+    transform: translateZ(0); 
+    will-change: background-image;
 }
 
-/* 활성화된 배경 레이어만 화면에 노출 */
-.bg-layer.active {
-    opacity: 1; 
-}
 
-/* UI, 캐릭터 등을 담는 상위 스크린 컨테이너 */
+
 .screen {
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    /* [중요] 배경 레이어(z-index: 1)보다 확실하게 위로 올림 */
-    z-index: 2; 
 }
 
 /* Dialogue Screen 입체 구조 유지 */
@@ -243,9 +220,6 @@ body {
     width: 100%;
     height: 100%;
     display: block !important; 
-    
-    /* 대사창 스크린도 배경보다 위에 떠야 하므로 명시적 지정 */
-    z-index: 2; 
 }
 
 /* ==========================================================================
