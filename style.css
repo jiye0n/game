@@ -271,28 +271,28 @@ body {
 }
 
 /* 선배 교사 개별 세팅 (아래로 내림) */
-.character-area img.char-img[src*="senior.png"] {
+.character-area img.char-img[src*="senior.webp"] {
     height: 480px !important; 
     /* [★보정] 기존 -150px에서 -70px로 변경하여 아래로 다운 */
     transform: translateX(40px) translateY(150px) !important; 
 }
 
 /* 교감선생님 개별 세팅 (아래로 내림) */
-.character-area img.char-img[src*="vp.png"] {
+.character-area img.char-img[src*="vp.webp"] {
     height: 400px !important; 
     /* [★보정] 기존 -150px에서 -75px로 변경하여 아래로 다운 */
     transform: translateX(200px) translateY(150px) !important; 
 }
 
 /* 반 학생들 개별 세팅 (아래로 내림) */
-.character-area img.char-img[src*="friend.png"] {
+.character-area img.char-img[src*="friend.webp"] {
     height: 600px !important; 
     /* [★보정] 기존 20px에서 90px로 변경하여 아래로 다운 */
     transform: translateX(150px) translateY(90px) !important; 
 }
 
 /* 초원이 개별 세팅 (아래로 내림) */
-.character-area img.char-img[src*="chowon2.png"] {
+.character-area img.char-img[src*="chowon2.webp"] {
     height: 400px !important; 
     /* [★보정] 기존 -200px에서 -120px로 변경하여 아래로 다운 */
     transform: translateX(400px) translateY(150px) !important; 

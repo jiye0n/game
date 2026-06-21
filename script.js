@@ -210,6 +210,7 @@ const scenes = [
     { 
         type: 'interstitial', 
         bg: '#ffc0cb', 
+        bgImage: 'images/bg4.webp',
         text: '초원이와 어색한 첫 만남을 뒤로하고 교실로 함께 이동하였다.' 
     },
     {
