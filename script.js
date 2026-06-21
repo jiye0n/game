@@ -168,7 +168,7 @@ const scenes = [
         bg: '#ffe4e1',
         question: '이때 알맞은 선택지는?',
         achievementId: "q1", // 도전 과제 도감 연동용 ID
-        achievementTitle: "🎖️ 업적 달성: 반향어 마스터!",
+        achievementTitle: "🎖️ 업적 달성: 첫 마음 열기!",
         achievementSubtitle: "칭호 획득: 따뜻한 새내기 🌱",
         choices: [
             { id: 'A', text: '"초원아, 선생님 눈 봐야지?"라며 턱을 살짝 돌려 강제로 눈을 맞춘다.', correct: false },
@@ -582,7 +582,7 @@ let unlockedAchievements = []; // 획득한 업적 보관용 배열
 
 // 전체 업적 도감 데이터 세트
 const allAchievements = [
-    { id: 'q1', title: "🎖️ 반향어 마스터", subtitle: "칭호: 따뜻한 새내기 🌱", desc: "1번 퀴즈 정답 달성" },
+    { id: 'q1', title: "🎖️ 첫 마음 열기", subtitle: "칭호: 따뜻한 새내기 🌱", desc: "1번 퀴즈 정답 달성" },
     { id: 'q2', title: "🏆 장애 특성 이해 완료", subtitle: "칭호: 든든한 울타리 🌳", desc: "2번 퀴즈 정답 달성" },
     { id: 'q3', title: "✨ 최고의 교사", subtitle: "칭호: 초원이의 빛 ☀️", desc: "3번 퀴즈 정답 달성" }
 ];
