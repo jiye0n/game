@@ -292,7 +292,6 @@ body {
     /* [★보정] 기존 20px에서 90px로 변경하여 아래로 다운 */
     transform: translateX(150px) translateY(90px) !important; 
 }
-
 /* 초원이 개별 세팅 (아래로 내림) */
 .character-area img.char-img[src*="chowon2.webp"] {
     height: 400px !important; 
@@ -636,7 +635,9 @@ body {
     width: 100% !important;
     height: 100% !important;
 }
-
+.quiz-question-text {
+    white-space: pre-line; /* 이 속성이 있으면 문자열 안의 \n을 브라우저가 알아서 줄바꿈 해줍니다! */
+}
 /* 2. 질문 상자 및 해설 상자 */
 .quiz-container-box, .explanation-box {
     background: rgba(255, 255, 255, 0.96) !important;
