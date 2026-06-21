@@ -161,8 +161,7 @@ const scenes = [
     {
         type: 'quiz_question',
         bg: '#ffe4e1',
-        // \n 자리에 <br>을 넣어버리기
-        question: '교사는 초원이가 낯선 상황과 <br>새로운 관계에 어려움을 느끼고 있음을 깨닫고 <br>어떻게 다가가야 할지 고민합니다.<br><br>이때 알맞은 선택지는?'
+        question: '교사는 초원이가 낯선 상황과 \n새로운 관계에 어려움을 느끼고 있음을 깨닫고 \n어떻게 다가가야 할지 고민합니다.\n\n이때 알맞은 선택지는?'
     },
     {
         type: 'quiz_choices',
@@ -934,10 +933,14 @@ dialogDiv.innerHTML = `
         const quizDiv = document.createElement('div');
         quizDiv.className = 'quiz-question-screen screen';
         quizDiv.onclick = nextScene;
+        
+        // [★ 이 한 줄만 추가!] 문자열 안에 꼬여있는 모든 형태의 \n을 브라우저용 줄바꿈(<br>)으로 바꿔줍니다.
+        const cleanQuestion = scene.question.replace(/\n/g, '<br>').replace(/\\n/g, '<br>');
+
         quizDiv.innerHTML = `
             <div class="quiz-container-box">
                 <div class="quiz-header-title">🔍 질문</div>
-                <div class="quiz-question-text">${scene.question.replace(/\\n/g, '<br>')}</div>
+                <div class="quiz-question-text">${cleanQuestion}</div>
                 <div class="quiz-next-tip">클릭하여 선택지 보기...</div>
             </div>
         `;
