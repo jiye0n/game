@@ -624,7 +624,11 @@ body {
 /* ==========================================================================
    [★퀴즈 및 해설 UI 완전체] 선택지와 통일감 있는 핑크 도트 패밀리룩 디자인
    ========================================================================== */
-
+/* 퀴즈 질문과 해설 텍스트 영역에 줄바꿈 속성을 강제로 주입 */
+.quiz-question-text, .explanation-text {
+    white-space: pre-wrap !important; /* !important를 붙여서 다른 방해 속성을 무시하고 무조건 줄바꿈합니다 */
+    word-break: break-all;           /* 단어가 박스 밖으로 탈출하는 것을 방지 */
+}
 /* 1. 퀴즈 질문, 선택지, 해설 화면 전체 레이아웃 구속 */
 .quiz-question-screen, .quiz-choices-screen, .explanation-screen {
     display: flex !important;
@@ -634,9 +638,6 @@ body {
     padding: 40px !important;
     width: 100% !important;
     height: 100% !important;
-}
-.quiz-question-text {
-    white-space: pre-line; /* 이 속성이 있으면 문자열 안의 \n을 브라우저가 알아서 줄바꿈 해줍니다! */
 }
 /* 2. 질문 상자 및 해설 상자 */
 .quiz-container-box, .explanation-box {
