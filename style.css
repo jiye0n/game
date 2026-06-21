@@ -279,8 +279,10 @@ body {
 
 /* 교감선생님 개별 세팅 (아래로 내림) */
 .character-area img.char-img[src*="vp.webp"] {
-    height: 400px !important; 
-    /* [★보정] 기존 -150px에서 -75px로 변경하여 아래로 다운 */
+    max-width: 70%;  /* 원하는 크기 비율(예: 60%, 70%)로 자유롭게 조절하세요 */
+    height: auto;    /* 가로 세로 비율 유지 */
+    margin: 0 auto;  /* 중앙 정렬 필요 시 */
+    display: block;
     transform: translateX(200px) translateY(150px) !important; 
 }
 
