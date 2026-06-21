@@ -972,13 +972,15 @@ dialogDiv.innerHTML = `
         screen.appendChild(quizDiv);
     }
     // 퀴즈 결과 및 해설 화면
+// 퀴즈 결과 및 해설 화면
     else if (scene.type === 'quiz_result' || scene.type === 'quiz_explanation') {
         const resDiv = document.createElement('div');
         resDiv.className = 'explanation-screen screen';
         resDiv.onclick = nextScene;
         const isResult = (scene.type === 'quiz_result');
         
-        const safeText = scene.text ? scene.text.replace(/\\n/g, '<br>') : '';
+        // [★ 핵심 수정] 해설 텍스트 안에 있는 \n과 \\n을 모두 <br> 태그로 안전하게 구속·치환합니다.
+        const safeText = scene.text ? scene.text.replace(/\n/g, '<br>').replace(/\\n/g, '<br>') : '';
         const safeTitle = scene.title ? scene.title : '결과 확인';
 
         resDiv.innerHTML = `
